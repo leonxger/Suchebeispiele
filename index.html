@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Suchalgorithmen Visualisiert</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header class="hero">
+    <nav class="top-nav">
+      <div class="logo">SearchLab</div>
+      <ul class="nav-links">
+        <li><a href="#visualizer">Visualizer</a></li>
+        <li><a href="#algorithms">Algorithmen</a></li>
+        <li><a href="#compare">Vergleich</a></li>
+      </ul>
+    </nav>
+    <div class="hero-content">
+      <h1>Suchalgorithmen interaktiv verstehen</h1>
+      <p>Entdecke, wie verschiedene Suchstrategien Schritt für Schritt durch ein Datenfeld navigieren – vom linearen Durchlauf bis zu komplexeren Sprung- und Binärsuchen.</p>
+      <div class="hero-actions">
+        <a class="btn primary" href="#visualizer">Jetzt visualisieren</a>
+        <a class="btn ghost" href="#algorithms">Mehr erfahren</a>
+      </div>
+    </div>
+    <div class="hero-glow"></div>
+  </header>
+
+  <main>
+    <section id="visualizer" class="visualizer">
+      <div class="section-heading">
+        <h2>Visualizer</h2>
+        <p>Wähle einen Algorithmus, setze den Suchwert und beobachte die Schritte live.</p>
+      </div>
+
+      <div class="controls">
+        <div class="control-group">
+          <label for="algorithmSelect">Algorithmus</label>
+          <div class="algorithm-list" id="algorithmTabs">
+            <!-- Tabs werden dynamisch erzeugt -->
+          </div>
+        </div>
+
+        <div class="control-grid">
+          <div class="control-group">
+            <label for="targetInput">Gesuchter Wert</label>
+            <div class="input-with-button">
+              <input type="number" id="targetInput" placeholder="z. B. 42" />
+              <button class="btn small" id="useRandom">Zufällig</button>
+            </div>
+          </div>
+
+          <div class="control-group">
+            <label>Aktionen</label>
+            <div class="button-row">
+              <button class="btn secondary" id="generateData">Neue Daten</button>
+              <button class="btn secondary" id="playSteps">Start</button>
+              <button class="btn secondary" id="nextStep">Nächster Schritt</button>
+              <button class="btn secondary" id="resetSteps">Zurücksetzen</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="visualizer-grid">
+        <aside class="info-panel" id="algorithmInfo">
+          <!-- Infos werden dynamisch geladen -->
+        </aside>
+
+        <div class="visual-area">
+          <div class="array-container" id="arrayContainer">
+            <!-- Array Darstellung -->
+          </div>
+          <div class="step-info" id="stepInfo">
+            <div class="status-label">Bereit</div>
+            <p>Lege los, indem du einen Algorithmus auswählst und auf „Start“ klickst.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="algorithms" class="algorithm-section">
+      <div class="section-heading">
+        <h2>Algorithmen im Überblick</h2>
+        <p>Jeder Ansatz hat unterschiedliche Strategien und Einsatzgebiete. Durch interaktive Visualisierungen wird das Verhalten greifbar.</p>
+      </div>
+
+      <div class="algorithm-cards" id="algorithmCards">
+        <!-- Karten werden dynamisch erzeugt -->
+      </div>
+    </section>
+
+    <section id="compare" class="compare-section">
+      <div class="section-heading">
+        <h2>Komplexität & Charakteristik</h2>
+        <p>Vergleiche die wichtigsten Kennzahlen und finde heraus, welcher Algorithmus für welches Szenario geeignet ist.</p>
+      </div>
+      <div class="comparison-table">
+        <div class="table-row table-header">
+          <div>Algorithmus</div>
+          <div>Best Case</div>
+          <div>Average Case</div>
+          <div>Worst Case</div>
+          <div>Besonderheiten</div>
+        </div>
+        <div class="table-body" id="comparisonTable">
+          <!-- Zeilen werden dynamisch erzeugt -->
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <p>Erstellt mit ♥︎ für verständliche Algorithmen. Experimentiere, lerne und entdecke.</p>
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>
