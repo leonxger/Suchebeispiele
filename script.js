@@ -697,10 +697,17 @@ function initHeroAnimation() {
   const container = document.getElementById("heroCanvas");
   if (!container) return;
   const canvas = document.createElement("canvas");
-  canvas.width = container.clientWidth;
-  canvas.height = container.clientHeight;
+  canvas.style.width = "100%";
+  canvas.style.height = "100%";
   container.appendChild(canvas);
   const ctx = canvas.getContext("2d");
+
+  function resize() {
+    canvas.width = container.clientWidth;
+    canvas.height = container.clientHeight;
+  }
+
+  resize();
 
   const nodes = Array.from({ length: 16 }, () => ({
     x: Math.random() * canvas.width,
@@ -709,14 +716,14 @@ function initHeroAnimation() {
     vy: (Math.random() - 0.5) * 0.6,
   }));
 
-  function resize() {
-    canvas.width = container.clientWidth;
-    canvas.height = container.clientHeight;
-  }
-
   window.addEventListener("resize", () => {
     resize();
   });
+
+  if ("ResizeObserver" in window) {
+    const observer = new ResizeObserver(() => resize());
+    observer.observe(container);
+  }
 
   function draw() {
     ctx.clearRect(0, 0, canvas.width, canvas.height);
