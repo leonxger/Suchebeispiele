@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Suchalgorithmen verstehen</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;600&family=Inter:wght@400;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header class="hero">
+    <nav class="nav">
+      <div class="brand">Suchalgorithmen Explorer</div>
+      <button class="theme-toggle" id="themeToggle" aria-label="Theme umschalten">
+        <span aria-hidden="true">☾</span>
+      </button>
+    </nav>
+    <div class="hero__content">
+      <h1>Suche intuitiv verstehen</h1>
+      <p>
+        Interaktive Visualisierungen und verständliche Erklärungen für bekannte Suchalgorithmen –
+        von der linearen Suche bis zu grafenbasierten Strategien.
+      </p>
+      <a class="hero__cta" href="#algorithmen">Jetzt entdecken</a>
+    </div>
+    <div class="hero__visual" id="heroCanvas"></div>
+  </header>
+
+  <main>
+    <section id="algorithmen" class="section">
+      <h2>Vergleich der Suchstrategien</h2>
+      <p>
+        Jeder Algorithmus zeigt denselben Datensatz – beobachte, wie sich die Schritte
+        unterscheiden und wann ein Treffer gefunden wird.
+      </p>
+      <div class="cards" id="algorithmGrid"></div>
+    </section>
+
+    <section class="section section--secondary" id="wissen">
+      <div class="section__header">
+        <h2>Wann benutze ich welchen Algorithmus?</h2>
+        <p>
+          Nutze die Filter, um Algorithmen nach Einsatzgebiet zu entdecken. Tippe auf einen Tag
+          und die Karten werden gefiltert.
+        </p>
+      </div>
+      <div class="filter" id="tagFilter"></div>
+    </section>
+
+    <section class="section">
+      <h2>Komplexität im Überblick</h2>
+      <div class="complexity">
+        <div class="complexity__info">
+          <h3>Von O(n) zu O(log n)</h3>
+          <p>
+            Die Wahl des Algorithmus beeinflusst, wie schnell du Ergebnisse erhältst. Je besser
+            der Algorithmus zur Struktur deiner Daten passt, desto effizienter kann gesucht werden.
+          </p>
+          <ul>
+            <li><strong>Linear:</strong> Unsortierte Daten – jeder Eintrag wird geprüft.</li>
+            <li><strong>Binär:</strong> Sortierte Daten – halbiert den Suchraum mit jedem Schritt.</li>
+            <li><strong>Graphen:</strong> Strukturen mit Knoten &amp; Kanten – berücksichtigen Gewichte und Pfadlängen.</li>
+          </ul>
+        </div>
+        <canvas id="complexityChart" aria-label="Vergleich der Komplexität"></canvas>
+      </div>
+    </section>
+
+    <section class="section section--highlight" id="faq">
+      <h2>FAQ</h2>
+      <div class="faq">
+        <details>
+          <summary>Wie kann ich die Visualisierung steuern?</summary>
+          <p>Starte die Simulation, pausiere sie oder gehe Schritt für Schritt mit den Kontrollknöpfen.</p>
+        </details>
+        <details>
+          <summary>Warum ist die binäre Suche so viel schneller?</summary>
+          <p>Weil sie den Suchraum kontinuierlich halbiert. Das reduziert die Anzahl der Vergleiche drastisch.</p>
+        </details>
+        <details>
+          <summary>Wann brauche ich graphbasierte Suche?</summary>
+          <p>
+            Immer dann, wenn du Pfade und Kosten berücksichtigen musst – zum Beispiel in Navigations-Apps oder Spielen.
+          </p>
+        </details>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <p>
+      Erstellt für einen schnellen Einstieg in die Welt der Suchalgorithmen. Fühle dich frei, den Code zu
+      erweitern und eigene Simulationen hinzuzufügen.
+    </p>
+  </footer>
+
+  <template id="cardTemplate">
+    <article class="card" data-tags="">
+      <header class="card__header">
+        <h3 class="card__title"></h3>
+        <span class="card__complexity"></span>
+      </header>
+      <p class="card__description"></p>
+      <div class="card__visual"></div>
+      <div class="card__status badge"></div>
+      <div class="card__controls">
+        <button class="btn" data-action="play">Start</button>
+        <button class="btn" data-action="step">Schritt</button>
+        <button class="btn btn--ghost" data-action="reset">Reset</button>
+      </div>
+      <ul class="card__tags"></ul>
+    </article>
+  </template>
+
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
+  <script src="script.js" type="module"></script>
+</body>
+</html>
